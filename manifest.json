@@ -6,7 +6,8 @@
   "start_url": "/",
   "description": "Themes created with love for WebXR developers :-)",
   "display": "standalone",
-  "icons": [ {
+  "icons": [ 
+    {
    "src": "./icons/icon512.png",
    "sizes": "512x512",
    "type": "image/png",
