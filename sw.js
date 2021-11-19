@@ -2,9 +2,9 @@
 //All assets that have to be cached to install/create the PWA
 var CACHE_NAME = 'maxa-cache-v1';
 var urlsToCache = [
-  '/',
-  '/scenes/main.js',
-  '/scenes/sceneManager.js',
+  './',
+  './scenes/main.js',
+  './scenes/sceneManager.js',
   '../WebXR-Modules/babylon.js',
   '../WebXR-Modules/babylonjs.materials.min.js',
   '/icons',
