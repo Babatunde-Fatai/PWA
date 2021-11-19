@@ -20,34 +20,7 @@
     "type": "image/png"
    }],
   "background_color": "#6dcdb1",
-  "theme_color": "#009578",
-  "chrome_url_overrides": {
-      "newtab": "./scenes/index.html"
-   },
-  "browser_action": {
-   "default_icon": "./icons/icon16.png",
-   "default_popup": "popup.html"
-
-  },
-  "options_page": "options.html",
-  
-  "permissions" : [
-    "storage",
-    "notifications", 
-    "contextMenus",
-     "tabs"
-  ],
-  "host_permissions": [
-  "https://www.Google.com/*"
-  ],
-  "content_scripts": [ 
-    {
-      "matches": ["https://dev.coolstart.com/*"],
-      "js": ["content.js", "jquery-3.6.0.min.js"]
-    }
-  ]
-
-   
+  "theme_color": "#009578"
 
 
 }
