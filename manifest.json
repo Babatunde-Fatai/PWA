@@ -3,8 +3,8 @@
   "name": "Maxa Experiences",
   "short_name": "Maxa Experiences",
   "version": "0.0.1",
-  "id": "/",
-  "start_url": "/",
+  "id": "./",
+  "start_url": "./",
   "description": "Themes created with love for WebXR developers :-)",
   "display": "standalone",
   "icons": [ 
