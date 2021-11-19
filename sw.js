@@ -3,7 +3,7 @@
 var CACHE_NAME = 'maxa-cache-v1';
 var urlsToCache = [
   '/',
-  '/scenes/index.js',
+  '/scenes/main.js',
   '/scenes/sceneManager.js',
   '../WebXR-Modules/babylon.js',
   '../WebXR-Modules/babylonjs.materials.min.js',
