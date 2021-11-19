@@ -16,7 +16,7 @@ if ('serviceWorker' in navigator) {
 
 //get the iframe in HTML
 var iframe = document.getElementById('#iframe');
-var maxScenes = 0; // number of scenes - always change as scene increases
+var maxScenes = -1; // number of scenes - always change as scene increases
 var max = maxScenes + 1; //for random number selector
 var min = -1; // starts from zero, chosese between values
 
