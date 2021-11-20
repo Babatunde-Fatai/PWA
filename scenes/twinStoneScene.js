@@ -58,8 +58,10 @@ var twinStoneScene = function () {
     // Our built-in 'ground' shape. Params: name, width, depth, subdivs, scene
     var ground = BABYLON.Mesh.CreateGround("ground1", 10, 6, 2, scene);
     var material = new BABYLON.StandardMaterial("mat", scene);
-    material.diffuseTexture = new BABYLON.Texture("../textures/floor.png", scene);
-
+    material.diffuseTexture = new BABYLON.Texture("../textures/Floor.png", scene);
+    // material.diffuseTexture = new BABYLON.Texture("../textures/Floor-tile-textures.jpg", scene);
+    // material.diffuseTexture.uScale = 5;
+    // material.diffuseTexture.vScale = 5;
     material.bumpTexture = new BABYLON.Texture("../textures/floor_bump.PNG", scene);
     material.bumpTexture.level = 0.3;
     //   material.bumpTexture.uScale = 2;

@@ -501,9 +501,11 @@ console.log(dateTime)
 }
 
 
+
 //Scene descriptions and details
-export function sceneDetail () {
-    
+export function sceneDetail (x) {
+
+
   //Scene text detail
     var detail = document.createElement('div');
     detail.setAttribute('type', '')
@@ -522,6 +524,7 @@ export function sceneDetail () {
     detailIcon.onclick = function (){
       //open/close tab
      tabs();
+    
 
     }
     detailIcon.onmouseover = function (){

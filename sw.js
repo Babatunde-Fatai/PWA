@@ -16,6 +16,9 @@ var urlsToCache = [
   //furball assets
   '/scenes/furballScene.html',
   '/scenes/furballScene.js',
+   //furpink assets
+   '/scenes/furpinkScene.html',
+   '/scenes/furpinkScene.js',
   //specularBalls assets
   '/textures/environment.dds',
   '/textures/ennisSpecularHDR.dds',
@@ -28,6 +31,19 @@ var urlsToCache = [
   '/scenes/digitalRainScene.html',
   '/scenes/digitalRainScene.js',
   '/WebXR-Modules/babylon.digitalRainPostProcess.js',
+  //Twin Stone assets
+  '/scenes/twinStoneScene.html',
+  '/scenes/twinStoneScene.js',
+  '/textures/Floor.png',
+  '/textures/candleopacity.png',
+  '/textures/earth.jpg',
+  //sketchFourier assets
+  '/scenes/sketchFourier.html',
+  '/scenes/sketchFourier.js',
+   //gaming assets
+   '/scenes/tickTac.html',
+   '/scenes/tickTac.js',
+   '/scenes/tickTac.css',
   
 ];
 

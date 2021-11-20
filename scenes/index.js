@@ -6,27 +6,32 @@ import * as sceneManager from "./sceneManager.js";
   var checkbox;
   var pinText;
   sceneManager.searchBox();
-  sceneManager.sceneDetail();
   sceneManager.createCheckbox(checkboxText, checkbox); // deal wth onclick event
   sceneManager.pinScene(pinText);
-
-
-
+  sceneManager.sceneDetail();
 
 //get the iframe in HTML
 // var iframe = document.getElementById('#iframe');
-var maxScenes = 4; // number of scenes - always change as scene increases
+var maxScenes = 6; // number of scenes - always change as scene increases
 var max = maxScenes + 1; //for random number selector
-var min = -1; // starts from zero, chosese between values
+var min = -1; // starts from zero, choses between values
 
 // // Random number Between any two numbers: max and min
 var activeScene; //Math.floor(Math.random() * (max - min + 1)) + min;
 // console.log("HERE IS the number choosen " + activeScene)
 
-//function to change iframe src
+//function to change main iframe src
 function changeScene(sceneUrl) {
-    document.getElementById('iframe').src = sceneUrl;
+    document.getElementById('sceneFrames').src = sceneUrl;
 }
+
+//function to bring in game iframe src
+// function gameScene() {
+//     $("gameFrames").load("./tickTac.html");
+// }
+
+
+
 
 // let userSettings = await chrome.action.getUserSettings();
 // console.log(`Is the action pinned? ${userSettings.isOnToolbar ? 'Yes': 'No'}.`);
@@ -142,10 +147,10 @@ switch (activeScene) {
         changeScene("../scenes/twinStoneScene.html");
         break;
     case 6:
-        changeScene("../scenes/skyboxScene.html");
+        changeScene("../scenes/furpinkScene.html");
         break;
     case 7:
-        changeScene("../scenes/islandScene.html");
+        changeScene("../scenes/sketchFourier.html");
 
         break;
     case 8:
@@ -169,7 +174,7 @@ switch (activeScene) {
         changeScene("../scenes/furballScene.html");
         break;
     case 14:
-        changeScene("../scenes/furpinkScene.html");
+        changeScene("../scenes/skyboxScene.html");
         break;
     case 15:
         changeScene("../scenes/galaxiaScene.html");
@@ -178,7 +183,7 @@ switch (activeScene) {
         changeScene("../scenes/waveScene.html");
         break;
     case 17:
-        changeScene("../scenes/sketchFourier.html");
+        changeScene("../scenes/islandScene.html");
 
         break;
     case 18:
