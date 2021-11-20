@@ -2,9 +2,9 @@
   "manifest_version": 3,
   "name": "Maxa Experiences",
   "short_name": "Maxa Experiences",
-  "version": "0.0.1",
+  "version": "0.0.1.B",
   "id": "./",
-  "start_url": "./",
+  "start_url": "/",
   "description": "Themes created with love for developers :-)",
   "display": "standalone",
   "icons": [ 
