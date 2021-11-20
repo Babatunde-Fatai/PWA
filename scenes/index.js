@@ -1,9 +1,21 @@
+import * as sceneManager from "./sceneManager.js";
 
   ///////////////////////////////////////////////////////////////////////////
 
+  var checkboxText; //checkbox text
+  var checkbox;
+  var pinText;
+  sceneManager.searchBox();
+  sceneManager.sceneDetail();
+  sceneManager.createCheckbox(checkboxText, checkbox); // deal wth onclick event
+  sceneManager.pinScene(pinText);
+
+
+
+
 //get the iframe in HTML
 var iframe = document.getElementById('#iframe');
-var maxScenes = -1; // number of scenes - always change as scene increases
+var maxScenes = 3; // number of scenes - always change as scene increases
 var max = maxScenes + 1; //for random number selector
 var min = -1; // starts from zero, chosese between values
 
@@ -111,7 +123,7 @@ switch (activeScene) {
         break;
     case 1:
 
-        changeScene("../scenes/astroidscene.html");
+        changeScene("../scenes/flowScene.html");
         break;
     case 2:
         changeScene("../scenes/specularBallsScene.html");
@@ -124,7 +136,7 @@ switch (activeScene) {
 
         break;
     case 4:
-        changeScene("../scenes/monkeyScene.html");
+        changeScene("../scenes/digitalRainScene.html");
         break;
     case 5:
         changeScene("../scenes/glowScene.html");
@@ -137,7 +149,7 @@ switch (activeScene) {
 
         break;
     case 8:
-        changeScene("../scenes/digitalRainScene.html");
+        changeScene("../scenes/monkeyScene.html");
 
         break;
     case 9:

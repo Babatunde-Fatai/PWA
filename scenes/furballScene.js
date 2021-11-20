@@ -1,5 +1,4 @@
 import * as Babylon from "../WebXR-Modules/babylon.js";
-import * as sceneManager from "./sceneManager.js";
 import * as customMat from "../WebXR-Modules/babylonjs.materials.min.js";
 
 ///////////////////////////////////////////////////////////////////////////
@@ -9,13 +8,13 @@ import * as customMat from "../WebXR-Modules/babylonjs.materials.min.js";
 var canvas = document.getElementById("renderCanvas");
 var engine = new BABYLON.Engine(canvas, true);
 
-var checkboxText; //checkbox text
-var checkbox;
-var pinText;
-sceneManager.searchBox();
-sceneManager.sceneDetail();
-sceneManager.createCheckbox(checkboxText, checkbox); // deal wth onclick event
-sceneManager.pinScene(pinText);
+// var checkboxText; //checkbox text
+// var checkbox;
+// var pinText;
+// sceneManager.searchBox();
+// sceneManager.sceneDetail();
+// sceneManager.createCheckbox(checkboxText, checkbox); // deal wth onclick event
+// sceneManager.pinScene(pinText);
 
 class Background {
       constructor (skyboxLink, scene) {

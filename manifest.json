@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "id": "./",
   "start_url": "./",
-  "description": "Themes created with love for WebXR developers :-)",
+  "description": "Themes created with love for developers :-)",
   "display": "standalone",
   "icons": [ 
     {
@@ -19,8 +19,8 @@
     "sizes": "200x200",
     "type": "image/png"
    }],
-  "background_color": "#6dcdb1",
-  "theme_color": "#009578"
+  "background_color": "#020000",
+  "theme_color": "#3e110a"
 
 
 }

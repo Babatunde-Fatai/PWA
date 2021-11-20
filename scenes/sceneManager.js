@@ -279,7 +279,7 @@ export function searchBox () {
   function submitted(event) { //function for submission
     event.preventDefault();
     const url = google + '+' + searchbox.value;
-    const win = window.open(url, '_blank');
+    const win = window.open(url, '_self'); //_blank
     win.focus();
   }
   form.addEventListener('submit', submitted);
@@ -503,7 +503,8 @@ console.log(dateTime)
 
 //Scene descriptions and details
 export function sceneDetail () {
-
+    
+  //Scene text detail
     var detail = document.createElement('div');
     detail.setAttribute('type', '')
     //Details expansion Logo
@@ -579,7 +580,9 @@ export function sceneDetail () {
    // newDiv.style.background= 'white';
     form.appendChild(textBox);  
 
-    //Image Logo
+
+
+    //Reload Image
     var babylonLogo = document.createElement("img"); 
     babylonLogo.setAttribute('type', 'image');
     babylonLogo.setAttribute('id',   'myBtn');
@@ -589,9 +592,27 @@ export function sceneDetail () {
     babylonLogo.style.left= "50%";
     babylonLogo.style.top= '90%'
     //searchbutton.style.scale = "1px";
-    babylonLogo.style.width = "132px";
-    babylonLogo.style.height = "36px"; 
-    babylonLogo.src= "../textures/Babylon_logo-DevLove.png";
+    babylonLogo.style.width = "50px";
+    babylonLogo.style.height = "50px"; 
+    babylonLogo.src= "../textures/refresh.png";
+    babylonLogo.onmouseover = function (){
+    babylonLogo.src= "../textures/refresh02.png";
+    babylonLogo.style.width = "45px";
+    babylonLogo.style.height = "45px"; 
+    }
+    babylonLogo.onmouseleave = function (){
+      babylonLogo.src= "../textures/refresh.png";
+      babylonLogo.style.width = "50px";
+      babylonLogo.style.height = "50px"; 
+    }
+    babylonLogo.onclick = function (){
+      babylonLogo.src= "../textures/refresh.png";
+      reload();
+    }
+  function reload() {
+      reload = location.reload();
+  }
+
     document.body.appendChild(babylonLogo);  
     
   //   //Search engine to use

@@ -9,9 +9,25 @@ var urlsToCache = [
   '../WebXR-Modules/babylonjs.materials.min.js',
   '/icons',
   '/icons/icon16.png',
+  '/textures/3d-model.png',
+  '/textures/3d-model-02.png',
   '/style.css',
+  '/scenes/index.css',
+  //furball assets
   '/scenes/furballScene.html',
   '/scenes/furballScene.js',
+  //specularBalls assets
+  '/textures/environment.dds',
+  '/textures/ennisSpecularHDR.dds',
+  '/textures/reflectivity.png',
+  '/textures/albedo.png',
+  //Spiral Spring assets
+  '/scenes/specularBallsScene.html',
+  '/scenes/specularBallsScene.js',
+  //Digital Rain assets
+  '/scenes/digitalRainScene.html',
+  '/scenes/digitalRainScene.js',
+  '/WebXR-Modules/babylon.digitalRainPostProcess.js',
   
 ];
 
