@@ -45,8 +45,6 @@ var urlsToCache = [
    '/scenes/tickTac.html',
    '/scenes/tickTac.js',
    '/scenes/tickTac.css',
-   'https://fonts.googleapis.com/css2?family=Itim&display=swap',
-   'https://fonts.gstatic.com',
    
   
 ];
