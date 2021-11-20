@@ -14,8 +14,8 @@ import * as sceneManager from "./sceneManager.js";
 
 
 //get the iframe in HTML
-var iframe = document.getElementById('#iframe');
-var maxScenes = 3; // number of scenes - always change as scene increases
+// var iframe = document.getElementById('#iframe');
+var maxScenes = 4; // number of scenes - always change as scene increases
 var max = maxScenes + 1; //for random number selector
 var min = -1; // starts from zero, chosese between values
 
@@ -139,7 +139,7 @@ switch (activeScene) {
         changeScene("../scenes/digitalRainScene.html");
         break;
     case 5:
-        changeScene("../scenes/glowScene.html");
+        changeScene("../scenes/twinStoneScene.html");
         break;
     case 6:
         changeScene("../scenes/skyboxScene.html");
@@ -160,7 +160,7 @@ switch (activeScene) {
         changeScene("../scenes/daggerScene.html");
         break;
     case 11:
-        changeScene("../scenes/twinStoneScene.html");
+        changeScene("../scenes/glowScene.html");
         break;
     case 12:
         changeScene("../scenes/dnaScene.html");
