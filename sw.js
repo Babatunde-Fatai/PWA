@@ -35,6 +35,7 @@ var urlsToCache = [
   '/scenes/twinStoneScene.html',
   '/scenes/twinStoneScene.js',
   '/textures/Floor.png',
+  '/textures/floor_bump.png',
   '/textures/candleopacity.png',
   '/textures/earth.jpg',
   //sketchFourier assets
@@ -44,6 +45,9 @@ var urlsToCache = [
    '/scenes/tickTac.html',
    '/scenes/tickTac.js',
    '/scenes/tickTac.css',
+   'https://fonts.googleapis.com/css2?family=Itim&display=swap',
+   'https://fonts.gstatic.com',
+   
   
 ];
 
