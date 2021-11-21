@@ -65,7 +65,9 @@ var urlsToCache = [
    '/textures/pin-red2.png',
    '/textures/hideUI-black.png',
     '/textures/hideUI-white.png',
-    '/textures/hideUI-g.png'
+    '/textures/hideUI-g.png',
+    '/textures/refresh.png',
+   '/textures/refresh02.png'
    
   
 ];

@@ -143,7 +143,7 @@ var engine = new BABYLON.Engine(canvas, true);
     woodPlank02.material = wood;
 
     //scene control
-     sceneManager.sceneEffect(10);
+    //  sceneManager.sceneEffect(10);
 
 
 		

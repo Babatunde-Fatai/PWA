@@ -31,15 +31,35 @@ var myParticleSet = BABYLON.Tools.LoadFile(`${bot}/systems/${name}.json`, (data)
 
 //** UI Modules **//
 
-  var form = document.createElement("FORM"); //need to be accessed by other functions
-  form.setAttribute('type', 'search');
-  form.setAttribute('id',   'formS');
-  form.style.flexDirection= 'row';
-  form.style.alignItems= 'right';
-  form.style.display = 'flex';
-  form.style.width= '100%';
-  form.style.height= '0%';
-  document.body.appendChild(form);
+//Button section
+
+var hostDiv = document.createElement("div"); 
+// divL.setAttribute('type', 'search');
+hostDiv.setAttribute('id',   'LeftDiv');
+hostDiv.style.flexDirection= 'column';
+hostDiv.style.display = 'flex';
+hostDiv.style.alignItems = "center";
+hostDiv.style.position= "absolute";
+// hostDiv.style.top = "0%"
+hostDiv.style.width= `${window.innerWidth}px`
+hostDiv.style.height= `${window.innerHeight}px`
+console.log("This is windows width: " + window.innerWidth);
+// hostDiv.style.height= '200px';
+document.body.appendChild(hostDiv);
+
+var hostDiv2 = document.createElement("div"); 
+hostDiv2.setAttribute('id',   'LeftDiv2');
+hostDiv2.style.flexDirection= 'column';
+hostDiv2.style.display = 'flex';
+hostDiv2.style.alignItems = "center";
+hostDiv2.style.height= "100%"
+hostDiv2.style.position= "absolute";
+// hostDiv2.style.top = "70%"
+// hostDiv2.style.width= `${window.innerWidth}px`
+
+
+document.body.appendChild(hostDiv2);
+
 
 
 export function searchBox () {
@@ -51,24 +71,25 @@ export function searchBox () {
   searchbox.setAttribute('id',   'search');
   // searchbox = document.styleSheets[0].cssRules; //Css rules?
   let keyframes = searchbox[0];
-  searchbox.style.position= 'absolute';
-  searchbox.style.display= 'block';
+  searchbox.style.position= 'relative';
+  searchbox.style.display= 'inline-block';
   searchbox.style.color= "black";
   searchbox.placeholder = "";
-  searchbox.style.top= '10%'
+  searchbox.style.top= '0%'
   searchbox.style.borderRadius = "25px";
   searchbox.autocomplete = "off"; // no suggestion box from previous input
   searchbox.style.height = "50px"; 
   searchbox.style.border = "20px";
-  searchbox.style.paddingLeft = "30px"
-  searchbox.style.paddingRight = "35px"
+  // searchbox.style.paddingLeft = "30px"
+  // searchbox.style.paddingRight = "35px"
+  searchbox.style.marginLeft = 'auto'
+  searchbox.style.marginRight = 'auto'
   searchbox.style.fontSize= "20px";
   searchbox.style.outlineWidth = "5px";
   searchbox.style.outlineColor = "grey";
-
   searchbox.style.background = "black";
-  searchbox.style.width = "0%";
-  searchbox.style.left= "2%";
+  searchbox.style.width = "3%";
+  searchbox.style.left= "-45%";
   searchbox.style.outlineStyle = "double";
   searchbox.onmouseover = function(){
 
@@ -155,20 +176,19 @@ export function searchBox () {
   
     };
   //document.body.appendChild(searchbox)
-  form.appendChild(searchbox);
+  hostDiv.appendChild(searchbox);
   
 
   //Image button
   var searchbutton = document.createElement("INPUT"); 
   searchbutton.setAttribute('type', 'image');
   searchbutton.setAttribute('id',   'myBtn');
-
-  searchbutton.style.position= 'absolute';
+  searchbutton.style.position= 'relative';
   // searchbutton.style.background = "darkslategrey";
-  searchbutton.style.left= "3%";
-  searchbutton.style.float= "right";
-  searchbutton.style.justifyContent= "right";
-  searchbutton.style.top= '11.5%'
+  searchbutton.style.left= "-45%";
+  // searchbutton.style.float= "right";
+  // searchbutton.style.justifyContent= "right";
+  searchbutton.style.top= '-5%'
   searchbutton.style.width = "30px";
   searchbutton.style.height = "30px"; 
   searchbutton.style.justifyContent = "center";
@@ -200,7 +220,7 @@ export function searchBox () {
   searchbox.style.background = 'black';
   searchbox.style.color = 'white';
   searchbox.style.width = "20%";
-  searchbox.style.left= "1%";
+  searchbox.style.left= "3%";
   searchbox.style.outlineStyle = "double";
   searchbox.placeholder = "Search the Web..."; //Css atributes in Css script
 
@@ -262,7 +282,7 @@ export function searchBox () {
     
   }
 
-  form.appendChild(searchbutton);     
+  hostDiv.appendChild(searchbutton);     
 
 
   //Search engine to use
@@ -274,7 +294,7 @@ export function searchBox () {
     const win = window.open(url, '_self'); //_blank
     win.focus();
   }
-  form.addEventListener('submit', submitted);
+  hostDiv.addEventListener('submit', submitted);
 
     
     
@@ -371,34 +391,11 @@ export function searchBox () {
 
     }
 
-//Button section
-
-var hostDiv = document.createElement("div"); 
-// divL.setAttribute('type', 'search');
-hostDiv.setAttribute('id',   'LeftDiv');
-hostDiv.style.flexDirection= 'column';
-hostDiv.style.display = 'flex';
-hostDiv.style.alignItems = "center";
-hostDiv.style.position= "absolute";
-// hostDiv.style.top = "0%"
-hostDiv.style.width= `${window.innerWidth}px`
-hostDiv.style.height= `${window.innerHeight}px`
-console.log("This is windows width: " + window.innerWidth);
-// hostDiv.style.height= '200px';
-document.body.appendChild(hostDiv);
-
-var hostDiv2 = document.createElement("div"); 
-hostDiv2.setAttribute('id',   'LeftDiv2');
-hostDiv2.style.flexDirection= 'column';
-hostDiv2.style.display = 'flex';
-hostDiv2.style.alignItems = "center";
-hostDiv2.style.height= "100%"
-hostDiv2.style.position= "absolute";
-// hostDiv2.style.top = "70%"
-// hostDiv2.style.width= `${window.innerWidth}px`
-
-
-document.body.appendChild(hostDiv2);
+// var bottomDiv = document.createElement("span"); 
+// bottomDiv.style.position= "relative";
+// bottomDiv.style.width= `${window.innerWidth}px`
+// bottomDiv.style.height= `${window.innerHeight}px`
+// document.body.appendChild(bottomDiv);
 
 
 
@@ -417,7 +414,7 @@ export function buttons(iframe) {
       var sbEmbed = '../textures/embed_black.png'
       var sgEmbed = '../textures/embed_g.png'
       var titleEmbed = 'embed to your website'
-      var embedButton = new Button(embedButton, leftV, topV, titleEmbed, swEmbed, sizeV, hostDiv, true)
+      var embedButton = new Button(embedButton, leftV, topV, titleEmbed, swEmbed, sizeV, hostDiv, false)
       embedButton.create(sbEmbed)
       embedButton.action(swEmbed, sbEmbed);
       embedButton.click("embedButton", "iframe link copied", iframe, sgEmbed, topTextV);
@@ -433,7 +430,7 @@ export function buttons(iframe) {
       var shareButton = new Button(shareButton, leftV, topV, titleShare, swShare, sizeV, hostDiv, true)
       shareButton.create(sbShare)
       shareButton.action(swShare, sbShare);
-      shareButton.hover();
+      
 
 
 
@@ -476,7 +473,7 @@ export function buttons(iframe) {
       funButton.create(sbFun)
       funButton.action(swFun, sbFun);
       funButton.click("funButton", "Funlinked", iframe, sgShare, topTextV);
-      funButton.hover();
+      
 
        //Credits button
        var creditButton;
@@ -489,7 +486,7 @@ export function buttons(iframe) {
        var creditButton = new Button(creditButton, leftV, topV, titlecredit, swcredit, sizeV, hostDiv, true)
        creditButton.create(sbcredit)
        creditButton.action(swcredit, sbcredit);
-       creditButton.hover();
+      
 
        //Buttons to the right
 
@@ -562,6 +559,38 @@ export function buttons(iframe) {
 
   document.body.appendChild(refreshButton);  
     
+//getting idle
+
+  let inactivityTime = function () {
+  let time;
+  window.onload = resetTimer;
+  document.onmousemove = resetTimer;
+  // bottomDiv.onmouseover = resetTimer;
+  document.onkeydown = resetTimer;
+
+  function logout() {
+    //what to do when idel
+    console.log("You are now inactive")
+
+    // form.style.display = 'none';
+    hostDiv.style.display = 'none';
+    hostDiv2.style.display = 'none';
+    
+  }
+  function resetTimer() {
+    clearTimeout(time);
+    time = setTimeout(logout, 10000)
+
+     //Do this when active again
+    //  form.style.display = 'flex';
+     hostDiv.style.display = 'flex';
+     hostDiv2.style.display = 'flex';
+  }
+
+  
+};
+inactivityTime();
+
 
 
       
@@ -583,38 +612,59 @@ console.log(dateTime)
 }
 
 
-//getting idle
 
-let inactivityTime = function () {
-  let time;
-  window.onload = resetTimer;
-  document.onmousemove = resetTimer;
-  document.onkeydown = resetTimer;
-  
-  function logout() {
-    //what to do when idel
-    console.log("You are now inactive")
+// //getting idle
 
-    form.style.display = 'none';
-    hostDiv.style.display = 'none';
-    hostDiv2.style.display = 'none';
+// let inactivityTime = function () {
+//   let time;
+//   window.onload = resetTimer;
+//   document.onmousemove = resetTimer;
+//   hostDiv.onmouseover = resetTimer;
+//   document.onkeydown = resetTimer;
+
+//   function logout() {
+//     //what to do when idel
+//     console.log("You are now inactive")
+
+//     form.style.display = 'none';
+//     hostDiv.style.display = 'none';
+//     hostDiv2.style.display = 'none';
     
-  }
-  function resetTimer() {
-    clearTimeout(time);
-    time = setTimeout(logout, 10000)
+//   }
+//   function resetTimer() {
+//     clearTimeout(time);
+//     time = setTimeout(logout, 10000)
 
-     //Do this when active again
-     form.style.display = 'flex';
-     hostDiv.style.display = 'flex';
-     hostDiv2.style.display = 'flex';
-  }
-};
-inactivityTime();
+//      //Do this when active again
+//      form.style.display = 'flex';
+//      hostDiv.style.display = 'flex';
+//      hostDiv2.style.display = 'flex';
+//   }
+
+//   $(document).ready(function(){
+//     $(document).mousemove(function(event){
+//       //Do this when active again
+//       if(form){
+
+//     form.style.display = 'flex';
+//      hostDiv.style.display = 'flex';
+//      hostDiv2.style.display = 'flex';
+
+//      console.log("Strange")
+
+//       }
+     
+      
+//     });
+//   });
+// };
+// inactivityTime();
 
 
 
 //Scene descriptions and details
+
+
 export function sceneDetail () {
 
 
@@ -985,7 +1035,7 @@ export function pinScene(text) {
 
 
 class Button {
-  constructor(Name, Left, Top, Title, src, scale, div,active) {
+  constructor(Name, Left, Top, Title, src, scale, div, active) {
   this.name = Name;
   this.x = Left;
   this.y = Top;
@@ -1032,6 +1082,12 @@ class Button {
   
   }
   action(sw, sb){
+
+
+
+    if(this.active === true){
+
+      
      this.name.onmouseleave = function (){
       this.src = sb;
       this.style.width = "35px";
@@ -1043,76 +1099,96 @@ class Button {
       this.style.height = "40px"; 
     } 
 
+    }else{
+      
+
+    }
+
   }
   click(name, alert, Link, sg, textTop){
    
     // var embedButton;
     // var funButton;
 
-    switch (name) {
+    if(this.active === true){
+
+      switch (name) {
       
-      case "embedButton":
-  
-      
-      this.name.onclick = function (){
-      this.src= sg;
-      embedText.style.display= 'flex';
-      setClipboard(Link)
-      window.alert(alert)
+        case "embedButton":
     
-          // if tab has been open for a while
-      setTimeout(function () {
-      embedText.style.display= 'none';
         
-        } , 1500);
-    
-         }
-        
-    
-        //copy text to clipboard
-        function setClipboard(text) {
-          var type = "text/plain";
-          var blob = new Blob([text], { type });
-          var data = [new ClipboardItem({ [type]: blob })];
+        this.name.onclick = function (){
+        this.src= sg;
+        embedText.style.display= 'flex';
+        setClipboard(Link)
+        window.alert(alert)
       
-          navigator.clipboard.write(data).then(
-              function () {
-              /* success */
-              console.log("copied to clip success");
-              },
-              function () {
-                console.log("copied to clip failed");
+            // if tab has been open for a while
+        setTimeout(function () {
+        embedText.style.display= 'none';
+          
+          } , 1500);
+      
+           }
+          
+      
+          //copy text to clipboard
+          function setClipboard(text) {
+            var type = "text/plain";
+            var blob = new Blob([text], { type });
+            var data = [new ClipboardItem({ [type]: blob })];
+        
+            navigator.clipboard.write(data).then(
+                function () {
+                /* success */
+                console.log("copied to clip success");
+                },
+                function () {
+                  console.log("copied to clip failed");
+      
+                }
+            );
+          }
+      
+          //display text
+            var embedText = document.createElement("h6"); 
+            var newContent = document.createTextNode("Link Copied"); 
+            embedText.appendChild(newContent);
+            embedText.style.position= 'absolute';
+            embedText.style.display= 'none';
+            embedText.style.color = "white"
+            embedText.style.left= "1.5%" ;
+            embedText.style.top= textTop;  
+            this.div.appendChild(embedText);
+      
     
-              }
-          );
-        }
-    
-        //display text
-          var embedText = document.createElement("h6"); 
-          var newContent = document.createTextNode("Link Copied"); 
-          embedText.appendChild(newContent);
-          embedText.style.position= 'absolute';
-          embedText.style.display= 'none';
-          embedText.style.color = "white"
-          embedText.style.left= "1.5%" ;
-          embedText.style.top= textTop;  
-          this.div.appendChild(embedText);
-    
+            break;
+        case "funButton":
+          break;
+          default:
+            break;
+      }
   
-          break;
-      case "funButton":
-        break;
-        default:
-          break;
+  
+
+    }else{
+      
+
     }
 
 
   }
-  hover(){
+  Deactivate(){
 
-   
+    if(this.active === true){
+
+      this.active = false;
 
 
+    }else{
+      this.active = false;
+    }
+    
   }
 
   
