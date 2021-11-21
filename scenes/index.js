@@ -6,9 +6,12 @@ import * as sceneManager from "./sceneManager.js";
   var checkbox;
   var pinText;
   sceneManager.searchBox();
-  sceneManager.createCheckbox(checkboxText, checkbox); // deal wth onclick event
   sceneManager.pinScene(pinText);
   sceneManager.sceneDetail();
+
+  var iframe = "iframe.com"
+  sceneManager.buttons(iframe);
+  
 
 //get the iframe in HTML
 // var iframe = document.getElementById('#iframe');
@@ -21,17 +24,32 @@ var activeScene; //Math.floor(Math.random() * (max - min + 1)) + min;
 // console.log("HERE IS the number choosen " + activeScene)
 
 //function to change main iframe src
+var frame;
 function changeScene(sceneUrl) {
-    document.getElementById('sceneFrames').src = sceneUrl;
+    frame = document.getElementById('sceneFrames')
+    frame.src = sceneUrl;
 }
+
+
+// if(frame){
+// //fit iframe to content
+// frame.addEventListener('load', function () {
+//     // Get the height of the content
+//     const height = frame.contentDocument.body.scrollHeight;
+//      console.log("height adjusting");
+//     // Set the height of iframe
+//     frame.setAttribute('height', `${height}px`);
+// });
+
+// }
+
+
+
 
 //function to bring in game iframe src
 // function gameScene() {
 //     $("gameFrames").load("./tickTac.html");
 // }
-
-
-
 
 // let userSettings = await chrome.action.getUserSettings();
 // console.log(`Is the action pinned? ${userSettings.isOnToolbar ? 'Yes': 'No'}.`);
@@ -123,6 +141,7 @@ window.onbeforeunload = () => {
 switch (activeScene) {
     case 0:
 
+        
         changeScene("../scenes/furballScene.html");
 
         break;

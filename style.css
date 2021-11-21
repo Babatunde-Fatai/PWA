@@ -1,7 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap");
+/* @import url("/WebXR-Modules/cssNunito.css"); */
+@import url("/WebXR-Modules/css2.css");
+
 html 
 {
  overflow: hidden;
+   font-family: 'Itim', cursive, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 html, body {
    width: 100%;

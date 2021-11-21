@@ -1,3 +1,8 @@
+/* @import url("/WebXR-Modules/cssNunito.css"); */
+@import url("/WebXR-Modules/css2.css");
+
+
+
 html,
 body,
 #renderCanvas {
@@ -9,7 +14,7 @@ body,
   position: relative;
   overflow: hidden;
   /* display: flex; */
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: 'Itim', cursive, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 ::placeholder {
   color: grey;

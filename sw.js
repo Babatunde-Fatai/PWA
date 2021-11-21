@@ -2,7 +2,7 @@
 //All assets that have to be cached to install/create the PWA
 var CACHE_NAME = 'maxa-cache-v1';
 var urlsToCache = [
-  './',
+  '/',
   './scenes/main.js',
   './scenes/sceneManager.js',
   '/WebXR-Modules/babylon.js',
@@ -13,6 +13,7 @@ var urlsToCache = [
   '/textures/3d-model-02.png',
   '/style.css',
   '/scenes/index.css',
+  '/WebXR-Modules/css2.css',
   //furball assets
   '/scenes/furballScene.html',
   '/scenes/furballScene.js',
@@ -45,6 +46,23 @@ var urlsToCache = [
    '/scenes/tickTac.html',
    '/scenes/tickTac.js',
    '/scenes/tickTac.css',
+   //buttons
+   '/textures/embed_black.png',
+   '/textures/embed_white.png',
+   '/textures/embed_g.png',
+   '/textures/share-white.png',
+   '/textures/share-black.png',
+   '/textures/share-g.png',
+   '/textures/fun-white.png',
+   '/textures/fun-black.png',
+   '/textures/fun-g.png',
+   '/textures/credit-white.png',
+   '/textures/credit-black.png',
+   '/textures/credit-g.png',
+   '/textures/pin-white.png',
+   '/textures/pin-white2.png',
+   '/textures/pin-red.png',
+   '/textures/pin-red2.png',
    
   
 ];
@@ -66,70 +84,71 @@ self.addEventListener('install', function(event) {
 
 
 //whenever we have a fetch request
-// self.addEventListener('fetch', function(event) {
-//     event.respondWith(
-//       caches.match(event.request)
-//         .then(function(response) {
-//           // Cache hit - return response
-//           if (response) {
-//             return response;
-//           }
-//           return fetch(event.request);
-//         }
-//       )
-//     );
-//   });
-
 self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
-
-        return fetch(event.request).then(
-          function(response) {
-            // Check if we received a valid response
-            if(!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-
-            // IMPORTANT: Clone the response. A response is a stream
-            // and because we want the browser to consume the response
-            // as well as the cache consuming the response, we need
-            // to clone it so we have two streams.
-            var responseToCache = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then(function(cache) {
-                cache.put(event.request, responseToCache);
-              });
-
+    event.respondWith(
+      caches.match(event.request)
+        .then(function(response) {
+          // Cache hit - return response
+          if (response) {
             return response;
           }
-        );
-      })
+          return fetch(event.request);
+        }
+      )
     );
-});
+  });
+
+
+// self.addEventListener('fetch', function(event) {
+//   event.respondWith(
+//     caches.match(event.request)
+//       .then(function(response) {
+//         // Cache hit - return response
+//         if (response) {
+//           return response;
+//         }
+
+//         return fetch(event.request).then(
+//           function(response) {
+//             // Check if we received a valid response
+//             if(!response || response.status !== 200 || response.type !== 'basic') {
+//               return response;
+//             }
+
+//             // IMPORTANT: Clone the response. A response is a stream
+//             // and because we want the browser to consume the response
+//             // as well as the cache consuming the response, we need
+//             // to clone it so we have two streams.
+//             var responseToCache = response.clone();
+
+//             caches.open(CACHE_NAME)
+//               .then(function(cache) {
+//                 cache.put(event.request, responseToCache);
+//               });
+
+//             return response;
+//           }
+//         );
+//       })
+//     );
+// });
 
 
 //looping through all of the caches in the service 
 //worker and deleting any caches that aren't defined in the cache allowlist.
-self.addEventListener('activate', function(event) {
+// self.addEventListener('activate', function(event) {
 
-  var cacheAllowlist = ['maxa-cache-v1']; //list all cache
+//   var cacheAllowlist = ['maxa-cache-v1']; //list all cache
 
-  event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (cacheAllowlist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
-});
+//   event.waitUntil(
+//     caches.keys().then(function(cacheNames) {
+//       return Promise.all(
+//         cacheNames.map(function(cacheName) {
+//           if (cacheAllowlist.indexOf(cacheName) === -1) {
+//             return caches.delete(cacheName);
+//           }
+//         })
+//       );
+//     })
+//   );
+// });

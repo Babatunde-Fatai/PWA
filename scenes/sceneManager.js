@@ -32,26 +32,18 @@ var myParticleSet = BABYLON.Tools.LoadFile(`${bot}/systems/${name}.json`, (data)
 //** UI Modules **//
 
   var form = document.createElement("FORM"); //need to be accessed by other functions
-
-export function searchBox () {
-//Search box
-//HTML DOM //Also babylonjs GUI // checkbox and text//
-  //form to host search tools
-
   form.setAttribute('type', 'search');
   form.setAttribute('id',   'formS');
   form.style.flexDirection= 'row';
   form.style.alignItems= 'right';
   form.style.display = 'flex';
-  //form.style.position= 'relative';
-
   form.style.width= '100%';
   form.style.height= '0%';
   document.body.appendChild(form);
- // document.getElementById('container').appendChild(form);
 
 
-
+export function searchBox () {
+//Search box
 //searchbox on form
   var searchbox = document.createElement("INPUT"); 
 //searchbox HTML DOM
@@ -293,7 +285,7 @@ export function searchBox () {
     //** Activate babyulonjs GUI Searchbox and icon **//
     ///////////////////////////////////////////////////
 
-      //  var input = new BABYLON.GUI.InputText();
+      //  var  = new BABYLON.GUI.InputText();
 
       //   input.width = 0.2;
       //   //input.list = "text-editors";
@@ -379,115 +371,153 @@ export function searchBox () {
 
     }
 
+//Button section
 
-//HTML DOM //Also babylonjs GUI // checkbox and text//
+var hostDiv = document.createElement("div"); 
+// divL.setAttribute('type', 'search');
+hostDiv.setAttribute('id',   'LeftDiv');
+hostDiv.style.flexDirection= 'column';
+hostDiv.style.display = 'flex';
+hostDiv.style.alignItems = "center";
+hostDiv.style.position= "absolute";
+hostDiv.style.top = "70%"
+hostDiv.style.width= `${window.innerWidth}px`
+console.log("This is windows width: " + window.innerWidth);
+// hostDiv.style.height= '200px';
+document.body.appendChild(hostDiv);
 
-export function createCheckbox (text , checkbox) {
-
-  // HTMl Div Execution - more efficient for now than babylonjs GUI - check below for code for BjsGUI
-    var label = document.createElement('LABEL')
-    label.style.position= 'absolute';
-    label.style.left= '1%';
-    label.style.top= '90%';
-    label.style.width = "100px";
-    //label.style.height = "100px";
-    document.body.appendChild(label);
-
-
-
-    text = document.createElement("div"); 
-    var newContent = document.createTextNode("Hide Screen UI")
-    text.appendChild(newContent);
-    text.style.position= 'absolute';
-    text.style.left= '25%';
-    text.style.top= '95.5%';
-   // newDiv.style.background= 'white';
-    text.style.fontSize= '12px';
-    text.style.color= "white";
-    label.appendChild(text);  
+var hostDiv2 = document.createElement("div"); 
+hostDiv2.setAttribute('id',   'LeftDiv2');
+hostDiv2.style.flexDirection= 'column';
+hostDiv2.style.display = 'flex';
+hostDiv2.style.alignItems = "center";
+hostDiv2.style.position= "absolute";
+hostDiv2.style.top = "70%"
+hostDiv2.style.width= `${window.innerWidth}px`
 
 
-    //checkbox
-    checkbox = document.createElement("input"); 
-    checkbox.setAttribute('type', 'checkbox');
-    checkbox.setAttribute('id',   'hideUI');
-    //checkbox.style.position= 'absolute';
-    //checkbox.style.left= '2%';
-    //checkbox.style.top= '95.5%';
-    //checkbox.style.scale = "13px";
-    //checkbox.style.width = "15px";
-    //checkbox.style.height = "15px"; 
-    //checkbox.style.fontSize= '150px';
-    //checkbox.style.color= "black";
-    checkbox.onclick = function(){ //checkbox events
+document.body.appendChild(hostDiv2);
+
+
+
+export function buttons(iframe) {
+      
+     //embed - iframe
+      var embedButton;
+      var top= 70;
+      var left= -45;
+      var size = 35;
+      var topV = `${top}%` //button top
+      var topTextV = `${top - 6}%` //button text top
+      var sizeV = `${size}px` //button text top
+      var leftV = `${left}%` //left
+      var swEmbed = '../textures/embed_white.png'
+      var sbEmbed = '../textures/embed_black.png'
+      var sgEmbed = '../textures/embed_g.png'
+      var titleEmbed = 'embed to your website'
+      var embedButton = new Button(embedButton, leftV, topV, titleEmbed, swEmbed, sizeV, hostDiv, true)
+      embedButton.create(sbEmbed)
+      embedButton.action(swEmbed, sbEmbed);
+      embedButton.click("embedButton", "iframe link copied", iframe, sgEmbed, topTextV);
+
+      //Share on social media
+      var shareButton;
+      var topV = `${top + 7}%` //top
+      var topTextV = `${top + 7 - 6}%` //button text top
+      var swShare = '../textures/share-white.png'
+      var sbShare = '../textures/share-black.png'
+      // var sgShare = '../textures/share-g.png'
+      var titleShare = 'Share on social media'
+      var shareButton = new Button(shareButton, leftV, topV, titleShare, swShare, sizeV, hostDiv, true)
+      shareButton.create(sbShare)
+      shareButton.action(swShare, sbShare);
+      shareButton.hover();
+
+
+
+      // var shareFace;
+      // var topV = `${top + 7.5}%` //top
+      // var topTextV = `${top + 7 - 6}%` //button text top
+      // var leftV = `${left + 5}%` //left
+      // var sizeV = `${size - 5}px` //button text top
+      // var swface = '../textures/facebook-white.png'
+      // var sbface = '../textures/facebook-black.png'
+      // var sgface = '../textures/facebook-g.png'
+      // var titleface = 'Share on social media'
+      // var shareFace = new Button(shareFace, leftV, topV, titleface, swface, sizeV, hostDiv2, true)
+      // shareFace.create(sbface)
+      // shareFace.action(swface, sbface);
+      // shareFace.hover();
+
+      // var shareTwit;
+      // var topV = `${top + 7.5}%` //top
+      // var topTextV = `${top + 7 - 6}%` //button text top
+      // var leftV = `${left + 10}%` //left
+      // var swTwit = '../textures/facebook-white.png'
+      // var sbTwit = '../textures/facebook-black.png'
+      // var sgTwit = '../textures/facebook-g.png'
+      // var titleTwit = 'Share on social media'
+      // var shareTwit = new Button(shareTwit, leftV, topV, titleTwit, swTwit, sizeV, hostDiv, true)
+      // shareTwit.create(sbTwit)
+      // shareTwit.action(swTwit, sbTwit);
+      // shareTwit.hover();
+
+      //Share on social media
+      var funButton;
+      var topV = `${top + 7}%` //top
+      var topTextV = `${top + 7 - 6}%` //button text top
+      var swFun = '../textures/fun-white.png'
+      var sbFun = '../textures/fun-black.png'
+      var sgShare = '../textures/fun-g.png'
+      var titleFun = 'Fun and Games'
+      var funButton = new Button(funButton, leftV, topV, titleFun, swFun, sizeV, hostDiv, true)
+      funButton.create(sbFun)
+      funButton.action(swFun, sbFun);
+      funButton.click("funButton", "Funlinked", iframe, sgShare, topTextV);
+      funButton.hover();
+
+       //Credits button
+       var creditButton;
+       var topV = `${top + 7}%` //top
+       var topTextV = `${top + 7 - 6}%` //button text top
+       var swcredit = '../textures/credit-white.png'
+       var sbcredit = '../textures/credit-black.png'
+       // var sgShare = '../textures/share-g.png'
+       var titlecredit = 'Credits'
+       var creditButton = new Button(creditButton, leftV, topV, titlecredit, swcredit, sizeV, hostDiv, true)
+       creditButton.create(sbcredit)
+       creditButton.action(swcredit, sbcredit);
+       creditButton.hover();
+
+       //Buttons to the right
+
+        //embed - iframe
+      var pinScene;
+      var left2= 45;
+      var top2 = 70;
+      var size = 35;
+      var topV = `${top2}%` //button top
+      var topTextV = `${top2 - 6}%` //button text top
+      var sizeV = `${size}px` //button text top
+      var left2V = `${left2}%` //left
+      var swEmbed = '../textures/pin-white.png'
+      var sbEmbed = '../textures/pin-black.png'
+      var sgEmbed = '../textures/pin-black.png'
+      var titleEmbed = 'Pin current scene'
+      var pinScene = new Button(pinScene, left2V, topV, titleEmbed, swEmbed, sizeV, hostDiv2, true)
+      pinScene.create(sbEmbed)
+      pinScene.action(swEmbed, sbEmbed);
+      pinScene.click("embedButton", "iframe link copied", iframe, sgEmbed, topTextV);
+
     
-      if(checkbox.checked == true) {
-
-      form.style.display = "none";
-      text.removeChild(newContent)
-      newContent = document.createTextNode("Dispay Screen UI"); 
-      text.appendChild(newContent);
 
 
-    
-
-      }else {
-
-      form.style.display = "flex";
-      text.removeChild(newContent)
-      newContent = document.createTextNode("Hide Screen UI"); 
-      text.appendChild(newContent);
-
-      }
-     
-
-    };
-    label.appendChild(checkbox);  
-
-
-
-
-
-     ///////////////////////////////////////////////////
-    //** Activate babyulonjs GUI Checkbox and text **//
-    ///////////////////////////////////////////////////
-
-    // //Create a panel to host the checkbox
-    // var checkPanel = new BABYLON.GUI.StackPanel();
-    // checkPanel.width = "200px";
-    // checkPanel.isVertical = false;
-    // checkPanel.left = "20px";
-    // checkPanel.top = "350px";
-    // checkPanel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-    // checkPanel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
-    // advancedTexture.addControl(checkPanel);
-
-    // //create checkbox
-    // var checkbox = new BABYLON.GUI.Checkbox();
-    // checkbox.width = "20px";
-    // checkbox.height = "20px";
-    // checkbox.isChecked = true;
-    // checkbox.color = "white";
-    // checkbox.onIsCheckedChangedObservable.add(function(value) {
-    //     // if (skull) {
-    //     //     //skull.useVertexColors = value;
-    //     // }
-    // });
-    // checkPanel.addControl(checkbox);   
-
-    //Textblock
-    // var header = new BABYLON.GUI.TextBlock();
-    // header.text = "Show / Hide Screen UI";
-    // header.width = "180px";
-    // header.marginLeft = "10px";
-    // header.resizeToFit = true;
-    // header.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-    // header.color = "white";
-    // checkPanel.addControl(header); 
+      
 
 }
 
-//Where I get my date from
+
+
 export function createDate (text) {
 
 var today = new Date();
@@ -503,7 +533,7 @@ console.log(dateTime)
 
 
 //Scene descriptions and details
-export function sceneDetail (x) {
+export function sceneDetail () {
 
 
   //Scene text detail
@@ -586,37 +616,37 @@ export function sceneDetail (x) {
 
 
     //Reload Image
-    var babylonLogo = document.createElement("img"); 
-    babylonLogo.setAttribute('type', 'image');
-    babylonLogo.setAttribute('id',   'myBtn');
+    var refreshButton = document.createElement("img"); 
+    refreshButton.setAttribute('type', 'image');
+    refreshButton.setAttribute('id',   'myBtn');
     // searchbutton.style.position= 'absolute';
-    babylonLogo.style.position= 'absolute';
+    refreshButton.style.position= 'absolute';
    // searchbutton.style.background = "darkslategrey";
-    babylonLogo.style.left= "50%";
-    babylonLogo.style.top= '90%'
+    refreshButton.style.left= "50%";
+    refreshButton.style.top= '90%'
     //searchbutton.style.scale = "1px";
-    babylonLogo.style.width = "50px";
-    babylonLogo.style.height = "50px"; 
-    babylonLogo.src= "../textures/refresh.png";
-    babylonLogo.onmouseover = function (){
-    babylonLogo.src= "../textures/refresh02.png";
-    babylonLogo.style.width = "45px";
-    babylonLogo.style.height = "45px"; 
+    refreshButton.style.width = "50px";
+    refreshButton.style.height = "50px"; 
+    refreshButton.src= "../textures/refresh.png";
+    refreshButton.onmouseover = function (){
+    refreshButton.src= "../textures/refresh02.png";
+    refreshButton.style.width = "45px";
+    refreshButton.style.height = "45px"; 
     }
-    babylonLogo.onmouseleave = function (){
-      babylonLogo.src= "../textures/refresh.png";
-      babylonLogo.style.width = "50px";
-      babylonLogo.style.height = "50px"; 
+    refreshButton.onmouseleave = function (){
+      refreshButton.src= "../textures/refresh.png";
+      refreshButton.style.width = "50px";
+      refreshButton.style.height = "50px"; 
     }
-    babylonLogo.onclick = function (){
-      babylonLogo.src= "../textures/refresh.png";
+    refreshButton.onclick = function (){
+      refreshButton.src= "../textures/refresh.png";
       reload();
     }
   function reload() {
       reload = location.reload();
   }
 
-    document.body.appendChild(babylonLogo);  
+    document.body.appendChild(refreshButton);  
     
   //   //Search engine to use
   // const url = 'https://www.babylonjs.com/';
@@ -644,7 +674,7 @@ export function pinScene(text) {
     form.appendChild(label);
   
 
-     //deling with Pin icon
+     //dealing with Pin icon
     var pinIcon = document.createElement("img");
     pinIcon.setAttribute('type', 'image');
     pinIcon.setAttribute('id',   'myPin');
@@ -723,6 +753,9 @@ export function pinScene(text) {
     var fav = localStorage.setItem('pinScene', currentScene) //save it to storage
    // var farev = localStorage.removeItem('newScene') //remove saved scene
     console.log("Saved Scene: " + currentScene)
+    // reload();
+
+    //reload after saving scene to keep unpin alive
 
   }else {
 
@@ -744,52 +777,14 @@ export function pinScene(text) {
 
   }
 
-
-}
-
-export function sceneBehaviours(){
-
-
-
-  //activate behaviour for scene
-  switch (activeScene) {
-     case 0:
-
-       break;
-     case 1:
- 
-
-
-       break;
-     case 2:
-       break;
-     case 3:
-       break;
-     case 4:
-       break;
-     case 5:
-       break;
-     case 6:
-       break;
-     case 7:
-       break;
-      case 8:
-       
-       break;
-     case 9:
-       break;
-     case 10:
-       break;
-     case 11:
-       
-       break;
-   
-     default:
-       break;
+  //reload function
+  function reload() {
+    reload = location.reload();
     }
 
 
 }
+
 
 //for two stones
 export function sceneEffect(scene){
@@ -932,8 +927,253 @@ switch (scene) {
 
 }
 
+//button object
+class Button {
+  constructor(Name, Left, Top, Title, src, scale, div,active) {
+  this.name = Name;
+  this.x = Left;
+  this.y = Top;
+  this.src = src;
+  this.tl = Title;
+  this.div = div;
+  this.scale = scale;
+  this.active = active;
+  }
+  create(sb){
+
+    //check if Button should be active
+    if(this.active === true){
+
+    //Embed button
+    this.name = document.createElement("img"); 
+    this.name.setAttribute('type', 'image');
+    this.name.setAttribute('id',   'myBtn');
+    // searchbutton.style.position= 'absolute';
+    this.name.style.position= 'relative';
+    this.name.style.display = 'inline-block'
+    this.name.style.marginLeft = 'auto'
+    this.name.style.marginRight = 'auto'
+    this.name.style.marginTop = '5px'
+    
+   // searchbutton.style.background = "darkslategrey";
+    this.name.style.left= this.x;
+    this.name.style.top= this.y;
+    //searchbutton.style.scale = "1px";
+    this.name.style.width = this.scale;
+    this.name.style.height = this.scale; 
+    this.name.src= sb;
+    this.name.title = this.tl; //Tooltip
+    this.div.appendChild(this.name); 
+    // document.body.appendChild(this.name); 
+
+
+
+    }else{
+      
+
+    }
+
+  
+  }
+  action(sw, sb){
+     this.name.onmouseleave = function (){
+      this.src = sb;
+      this.style.width = "35px";
+      this.style.height = "35px"; 
+    }
+    this.name.onmouseover = function (){
+      this.src = sw;
+      this.style.width = "40px";
+      this.style.height = "40px"; 
+    } 
+
+  }
+  click(name, alert, Link, sg, textTop){
+   
+    // var embedButton;
+    // var funButton;
+
+    switch (name) {
+      
+      case "embedButton":
+  
+      
+      this.name.onclick = function (){
+      this.src= sg;
+      embedText.style.display= 'flex';
+      setClipboard(Link)
+      window.alert(alert)
+    
+          // if tab has been open for a while
+      setTimeout(function () {
+      embedText.style.display= 'none';
+        
+        } , 1500);
+    
+         }
+        
+    
+        //copy text to clipboard
+        function setClipboard(text) {
+          var type = "text/plain";
+          var blob = new Blob([text], { type });
+          var data = [new ClipboardItem({ [type]: blob })];
+      
+          navigator.clipboard.write(data).then(
+              function () {
+              /* success */
+              console.log("copied to clip success");
+              },
+              function () {
+                console.log("copied to clip failed");
+    
+              }
+          );
+        }
+    
+        //display text
+          var embedText = document.createElement("h6"); 
+          var newContent = document.createTextNode("Link Copied"); 
+          embedText.appendChild(newContent);
+          embedText.style.position= 'absolute';
+          embedText.style.display= 'none';
+          embedText.style.color = "white"
+          embedText.style.left= "1.5%" ;
+          embedText.style.top= textTop;  
+          this.div.appendChild(embedText);
+    
+  
+          break;
+      case "funButton":
+        break;
+        default:
+          break;
+    }
+
+
+  }
+  hover(){
+
+   
+
+
+  }
+
+  
+
+ 
+
+}
+
 /////////////////UNUSED//////////////////////////
 
+
+//HTML DOM //Also babylonjs GUI // checkbox and text//
+
+// export function createCheckbox (text , checkbox) {
+
+//   // HTMl Div Execution - more efficient for now than babylonjs GUI - check below for code for BjsGUI
+//     var label = document.createElement('LABEL')
+//     label.style.position= 'absolute';
+//     label.style.left= '1%';
+//     label.style.top= '90%';
+//     label.style.width = "100px";
+//     //label.style.height = "100px";
+//     document.body.appendChild(label);
+
+
+
+//     text = document.createElement("div"); 
+//     var newContent = document.createTextNode("Hide Screen UI")
+//     text.appendChild(newContent);
+//     text.style.position= 'absolute';
+//     text.style.left= '25%';
+//     text.style.top= '95.5%';
+//    // newDiv.style.background= 'white';
+//     text.style.fontSize= '12px';
+//     text.style.color= "white";
+//     label.appendChild(text);  
+
+
+//     //checkbox
+//     checkbox = document.createElement("input"); 
+//     checkbox.setAttribute('type', 'checkbox');
+//     checkbox.setAttribute('id',   'hideUI');
+//     //checkbox.style.position= 'absolute';
+//     //checkbox.style.left= '2%';
+//     //checkbox.style.top= '95.5%';
+//     //checkbox.style.scale = "13px";
+//     //checkbox.style.width = "15px";
+//     //checkbox.style.height = "15px"; 
+//     //checkbox.style.fontSize= '150px';
+//     //checkbox.style.color= "black";
+//     checkbox.onclick = function(){ //checkbox events
+    
+//       if(checkbox.checked == true) {
+
+//       form.style.display = "none";
+//       text.removeChild(newContent)
+//       newContent = document.createTextNode("Dispay Screen UI"); 
+//       text.appendChild(newContent);
+
+
+    
+
+//       }else {
+
+//       form.style.display = "flex";
+//       text.removeChild(newContent)
+//       newContent = document.createTextNode("Hide Screen UI"); 
+//       text.appendChild(newContent);
+
+//       }
+     
+
+//     };
+//     label.appendChild(checkbox);  
+
+
+
+
+
+//      ///////////////////////////////////////////////////
+//     //** Activate babyulonjs GUI Checkbox and text **//
+//     ///////////////////////////////////////////////////
+
+//     // //Create a panel to host the checkbox
+//     // var checkPanel = new BABYLON.GUI.StackPanel();
+//     // checkPanel.width = "200px";
+//     // checkPanel.isVertical = false;
+//     // checkPanel.left = "20px";
+//     // checkPanel.top = "350px";
+//     // checkPanel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+//     // checkPanel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
+//     // advancedTexture.addControl(checkPanel);
+
+//     // //create checkbox
+//     // var checkbox = new BABYLON.GUI.Checkbox();
+//     // checkbox.width = "20px";
+//     // checkbox.height = "20px";
+//     // checkbox.isChecked = true;
+//     // checkbox.color = "white";
+//     // checkbox.onIsCheckedChangedObservable.add(function(value) {
+//     //     // if (skull) {
+//     //     //     //skull.useVertexColors = value;
+//     //     // }
+//     // });
+//     // checkPanel.addControl(checkbox);   
+
+//     //Textblock
+//     // var header = new BABYLON.GUI.TextBlock();
+//     // header.text = "Show / Hide Screen UI";
+//     // header.width = "180px";
+//     // header.marginLeft = "10px";
+//     // header.resizeToFit = true;
+//     // header.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+//     // header.color = "white";
+//     // checkPanel.addControl(header); 
+
+// }
 
 // //function to generate a random integer between 0 and 1 (both excluded ofcourse)
 // //math.floor gets rid of decimals - approx.
