@@ -73,7 +73,7 @@ var twinStoneScene = function () {
     ground.material = material;
     sphere.material = material;
     sphere2.material = material;
-    sceneManager.sceneEffect(12);
+   
 
     var alpha = 0;
     scene.registerBeforeRender(function () {

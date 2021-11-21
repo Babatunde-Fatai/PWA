@@ -380,8 +380,9 @@ hostDiv.style.flexDirection= 'column';
 hostDiv.style.display = 'flex';
 hostDiv.style.alignItems = "center";
 hostDiv.style.position= "absolute";
-hostDiv.style.top = "70%"
+// hostDiv.style.top = "0%"
 hostDiv.style.width= `${window.innerWidth}px`
+hostDiv.style.height= `${window.innerHeight}px`
 console.log("This is windows width: " + window.innerWidth);
 // hostDiv.style.height= '200px';
 document.body.appendChild(hostDiv);
@@ -391,9 +392,11 @@ hostDiv2.setAttribute('id',   'LeftDiv2');
 hostDiv2.style.flexDirection= 'column';
 hostDiv2.style.display = 'flex';
 hostDiv2.style.alignItems = "center";
+hostDiv2.style.width= "100%"
+hostDiv2.style.height= "100%"
 hostDiv2.style.position= "absolute";
-hostDiv2.style.top = "70%"
-hostDiv2.style.width= `${window.innerWidth}px`
+// hostDiv2.style.top = "70%"
+// hostDiv2.style.width= `${window.innerWidth}px`
 
 
 document.body.appendChild(hostDiv2);
@@ -404,7 +407,7 @@ export function buttons(iframe) {
       
      //embed - iframe
       var embedButton;
-      var top= 70;
+      var top= 55;
       var left= -45;
       var size = 35;
       var topV = `${top}%` //button top
@@ -494,21 +497,57 @@ export function buttons(iframe) {
         //embed - iframe
       var pinScene;
       var left2= 45;
-      var top2 = 70;
+      var top2 = 55;
       var size = 35;
       var topV = `${top2}%` //button top
       var topTextV = `${top2 - 6}%` //button text top
       var sizeV = `${size}px` //button text top
-      var left2V = `${left2}%` //left
-      var swEmbed = '../textures/pin-white.png'
-      var sbEmbed = '../textures/pin-black.png'
+      var left2V = `${left2}vw` //left
+      var swEmbed = '../textures/pin-black.png'
+      var sbEmbed = '../textures/pin-white.png'
       var sgEmbed = '../textures/pin-black.png'
       var titleEmbed = 'Pin current scene'
       var pinScene = new Button(pinScene, left2V, topV, titleEmbed, swEmbed, sizeV, hostDiv2, true)
       pinScene.create(sbEmbed)
       pinScene.action(swEmbed, sbEmbed);
       pinScene.click("embedButton", "iframe link copied", iframe, sgEmbed, topTextV);
+      
 
+      
+        //Reload Image
+    var refreshButton = document.createElement("img"); 
+    refreshButton.setAttribute('type', 'image');
+    refreshButton.setAttribute('id',   'myBtn');
+    // searchbutton.style.position= 'absolute';
+    refreshButton.style.position= 'absolute';
+   // searchbutton.style.background = "darkslategrey";
+    refreshButton.style.left= "50%";
+    refreshButton.style.top= '90%'
+    //searchbutton.style.scale = "1px";
+    refreshButton.style.width = "45px";
+    refreshButton.style.height = "45px"; 
+    refreshButton.src= "../textures/refresh.png";
+    refreshButton.title = "Refresh scene"; //Tooltip
+
+    refreshButton.onmouseover = function (){
+    refreshButton.src= "../textures/refresh02.png";
+    refreshButton.style.width = "50px";
+    refreshButton.style.height = "50px"; 
+    }
+    refreshButton.onmouseleave = function (){
+      refreshButton.src= "../textures/refresh.png";
+      refreshButton.style.width = "45px";
+      refreshButton.style.height = "45px"; 
+    }
+    refreshButton.onclick = function (){
+      refreshButton.src= "../textures/refresh.png";
+      reload();
+    }
+  function reload() {
+      reload = location.reload();
+  }
+
+    document.body.appendChild(refreshButton);  
     
 
 
@@ -536,117 +575,86 @@ console.log(dateTime)
 export function sceneDetail () {
 
 
-  //Scene text detail
-    var detail = document.createElement('div');
-    detail.setAttribute('type', '')
-    //Details expansion Logo
-    var detailIcon = document.createElement("img"); 
-    detailIcon.setAttribute('type', 'image');
-    detailIcon.setAttribute('id',   'myDetails');
-    detailIcon.style.left= "95%";
-    detailIcon.style.top= '90%'
-    detailIcon.style.width = "64px";
-    detailIcon.style.height = "64px";
-    detailIcon.src= "../textures/3d-model.png";
-    detailIcon.title = "Learn More";
-    detailIcon.style.position= 'absolute';
-    var open = false;
-    detailIcon.onclick = function (){
-      //open/close tab
-     tabs();
+  // //Scene text detail
+  //   var detail = document.createElement('div');
+  //   detail.setAttribute('type', '')
+  //   //Details expansion Logo
+  //   var detailIcon = document.createElement("img"); 
+  //   detailIcon.setAttribute('type', 'image');
+  //   detailIcon.setAttribute('id',   'myDetails');
+  //   detailIcon.style.left= "95%";
+  //   detailIcon.style.top= '90%'
+  //   detailIcon.style.width = "64px";
+  //   detailIcon.style.height = "64px";
+  //   detailIcon.src= "../textures/3d-model.png";
+  //   detailIcon.title = "Learn More";
+  //   detailIcon.style.position= 'absolute';
+  //   var open = false;
+  //   detailIcon.onclick = function (){
+  //     //open/close tab
+  //    tabs();
     
 
-    }
-    detailIcon.onmouseover = function (){
+  //   }
+  //   detailIcon.onmouseover = function (){
 
-    detailIcon.src= "../textures/3d-model-02.png";
+  //   detailIcon.src= "../textures/3d-model-02.png";
 
-    }
-    detailIcon.onmouseleave = function (){
+  //   }
+  //   detailIcon.onmouseleave = function (){
 
-    detailIcon.src= "../textures/3d-model.png";
+  //   detailIcon.src= "../textures/3d-model.png";
 
-    }
-    form.appendChild(detailIcon);  
+  //   }
+  //   form.appendChild(detailIcon);  
 
-    //function for open/close info tab
-  function tabs() {
-  if (open == false){
+  //   //function for open/close info tab
+  // function tabs() {
+  // if (open == false){
 
-    textBox.style.display= 'flex';
-    open = true;
-    console.log('opened tab')
+  //   textBox.style.display= 'flex';
+  //   open = true;
+  //   console.log('opened tab')
 
-      // if tab has been open for a while
-    setTimeout(function () {
-    if (open == true)
-    { 
+  //     // if tab has been open for a while
+  //   setTimeout(function () {
+  //   if (open == true)
+  //   { 
 
-     textBox.style.display= 'none';
+  //    textBox.style.display= 'none';
 
-     open = false;
+  //    open = false;
      
 
-    }else {}} , 15000);
+  //   }else {}} , 15000);
 
 
-  }else {
+  // }else {
 
-    textBox.style.display= 'none';
+  //   textBox.style.display= 'none';
 
-    open = false;
-    console.log('closed tab')
+  //   open = false;
+  //   console.log('closed tab')
 
 
-  }
+  // }
 
-  }
+  // }
   
-    var textBox = document.createElement("h2"); 
-    var newContent = document.createTextNode("This spot is going to have details on the particular scene and any other info or addon"); 
-    textBox.appendChild(newContent);
-    textBox.style.position= 'absolute';
-    textBox.setAttribute('id',   'infoBox');
-    textBox.style.display= 'none';
-    textBox.style.left= '77%';
-    textBox.style.top= '75%';
-   // newDiv.style.background= 'white';
-    form.appendChild(textBox);  
+  //   var textBox = document.createElement("h2"); 
+  //   var newContent = document.createTextNode("This spot is going to have details on the particular scene and any other info or addon"); 
+  //   textBox.appendChild(newContent);
+  //   textBox.style.position= 'absolute';
+  //   textBox.setAttribute('id',   'infoBox');
+  //   textBox.style.display= 'none';
+  //   textBox.style.left= '77%';
+  //   textBox.style.top= '75%';
+  //  // newDiv.style.background= 'white';
+  //   form.appendChild(textBox);  
 
 
 
-    //Reload Image
-    var refreshButton = document.createElement("img"); 
-    refreshButton.setAttribute('type', 'image');
-    refreshButton.setAttribute('id',   'myBtn');
-    // searchbutton.style.position= 'absolute';
-    refreshButton.style.position= 'absolute';
-   // searchbutton.style.background = "darkslategrey";
-    refreshButton.style.left= "50%";
-    refreshButton.style.top= '90%'
-    //searchbutton.style.scale = "1px";
-    refreshButton.style.width = "50px";
-    refreshButton.style.height = "50px"; 
-    refreshButton.src= "../textures/refresh.png";
-    refreshButton.onmouseover = function (){
-    refreshButton.src= "../textures/refresh02.png";
-    refreshButton.style.width = "45px";
-    refreshButton.style.height = "45px"; 
-    }
-    refreshButton.onmouseleave = function (){
-      refreshButton.src= "../textures/refresh.png";
-      refreshButton.style.width = "50px";
-      refreshButton.style.height = "50px"; 
-    }
-    refreshButton.onclick = function (){
-      refreshButton.src= "../textures/refresh.png";
-      reload();
-    }
-  function reload() {
-      reload = location.reload();
-  }
-
-    document.body.appendChild(refreshButton);  
+  
     
   //   //Search engine to use
   // const url = 'https://www.babylonjs.com/';
@@ -670,8 +678,8 @@ export function pinScene(text) {
     var label = document.createElement('LABEL')
     label.style.position= 'absolute';
     label.style.left= '95%';
-    label.style.top= '10%';
-    form.appendChild(label);
+    label.style.top= '0%';
+    hostDiv.appendChild(label);
   
 
      //dealing with Pin icon
@@ -753,7 +761,7 @@ export function pinScene(text) {
     var fav = localStorage.setItem('pinScene', currentScene) //save it to storage
    // var farev = localStorage.removeItem('newScene') //remove saved scene
     console.log("Saved Scene: " + currentScene)
-    // reload();
+    reload();
 
     //reload after saving scene to keep unpin alive
 
@@ -786,148 +794,153 @@ export function pinScene(text) {
 }
 
 
-//for two stones
-export function sceneEffect(scene){
+// //for two stones
+// export function sceneEffect(scene){
   
-switch (scene) {
-    case 12:
+// switch (scene) {
+//     case 12:
     
-     // HTMl Div Execution - more efficient for now than babylonjs GUI - check below for code for BjsGUI
-    var label = document.createElement('LABEL')
-    label.style.position= 'absolute';
-    label.style.left= '1%';
-    label.style.top= '94%';
-    label.style.width = "100%";
-    //label.style.height = "100px";
-    document.body.appendChild(label);
+//      // HTMl Div Execution - more efficient for now than babylonjs GUI - check below for code for BjsGUI
+//     var label = document.createElement('LABEL')
+//     label.style.position= 'absolute';
+//     label.style.left= '1%';
+//     label.style.top= '94%';
+//     label.style.width = "100%";
+//     //label.style.height = "100px";
+//     document.body.appendChild(label);
 
-   //checkbox // to reverse material animation
-    var checkbox2 = document.createElement("input"); 
-    checkbox2.setAttribute('type', 'checkbox');
-    checkbox2.setAttribute('id',   'reverseStone');
-    checkbox2.style.position= 'absolute';
-    checkbox2.style.left= '0%';
-    checkbox2.style.top= '95%';
-    checkbox2.style.scale = "13px";
-    checkbox2.style.width = "15px";
-    checkbox2.style.height = "15px"; 
-    checkbox2.style.fontSize= '150px';
-    checkbox2.style.color= "white";
-    checkbox2.onclick = function(){ //checkbox events
+//    //checkbox // to reverse material animation
+//     var checkbox2 = document.createElement("input"); 
+//     checkbox2.setAttribute('type', 'checkbox');
+//     checkbox2.setAttribute('id',   'reverseStone');
+//     checkbox2.style.position= 'absolute';
+//     checkbox2.style.left= '0%';
+//     checkbox2.style.top= '95%';
+//     checkbox2.style.scale = "13px";
+//     checkbox2.style.width = "15px";
+//     checkbox2.style.height = "15px"; 
+//     checkbox2.style.fontSize= '150px';
+//     checkbox2.style.color= "white";
+//     checkbox2.onclick = function(){ //checkbox events
 
-      if(checkbox2.checked == true) {
+//       if(checkbox2.checked == true) {
         
-        var reverse = localStorage.setItem('reverser', JSON.stringify(checkbox2.style.top));
+//         var reverse = localStorage.setItem('reverser', JSON.stringify(checkbox2.style.top));
 
-        //reverse == true;
+//         //reverse == true;
 
-      }else {
-        var reverse = localStorage.removeItem('reverser');
+//       }else {
+//         var reverse = localStorage.removeItem('reverser');
 
-        //reverse == false;
+//         //reverse == false;
     
 
-      }
+//       }
      
 
-    };
-    label.appendChild(checkbox2); 
+//     };
+//     label.appendChild(checkbox2); 
 
-    var text = document.createElement("div"); 
-    var newContent = document.createTextNode("Reverse Animation")
-    text.appendChild(newContent);
-    text.style.position= 'absolute';
-    text.style.left= '2%';
-    text.style.top= '90%';
-   // newDiv.style.background= 'white';
-    text.style.fontSize= '12px';
-    text.style.color= "white";
-    label.appendChild(text);  
-    break;
-  case 10:
+//     var text = document.createElement("div"); 
+//     var newContent = document.createTextNode("Reverse Animation")
+//     text.appendChild(newContent);
+//     text.style.position= 'absolute';
+//     text.style.left= '2%';
+//     text.style.top= '90%';
+//    // newDiv.style.background= 'white';
+//     text.style.fontSize= '12px';
+//     text.style.color= "white";
+//     label.appendChild(text);  
+//     break;
+//   case 10:
 
-    var checkbox2 = document.createElement("input"); 
-    checkbox2.setAttribute('type', 'checkbox');
-    checkbox2.setAttribute('id',   'reverseStone');
-    checkbox2.style.position= 'absolute';
-    checkbox2.style.left= '2%';
-    checkbox2.style.top= '90%';
-    checkbox2.style.scale = "13px";
-    checkbox2.style.width = "15px";
-    checkbox2.style.height = "15px"; 
-    checkbox2.style.fontSize= '150px';
-    checkbox2.style.color= "white";
-    checkbox2.onclick = function(){ //checkbox events
+//     var checkbox2 = document.createElement("input"); 
+//     checkbox2.setAttribute('type', 'checkbox');
+//     checkbox2.setAttribute('id',   'reverseStone');
+//     checkbox2.style.position= 'absolute';
+//     checkbox2.style.left= '2%';
+//     checkbox2.style.top= '90%';
+//     checkbox2.style.scale = "13px";
+//     checkbox2.style.width = "15px";
+//     checkbox2.style.height = "15px"; 
+//     checkbox2.style.fontSize= '150px';
+//     checkbox2.style.color= "white";
+//     checkbox2.onclick = function(){ //checkbox events
 
-      if(checkbox2.checked == true) {
+//       if(checkbox2.checked == true) {
         
-        //var reverse = localStorage.setItem('reverser', JSON.stringify(checkbox2.style.top));
+//         //var reverse = localStorage.setItem('reverser', JSON.stringify(checkbox2.style.top));
 
-        //reverse == true;
+//         //reverse == true;
 
-      }else {
-        //var reverse = localStorage.removeItem('reverser');
+//       }else {
+//         //var reverse = localStorage.removeItem('reverser');
 
-        //reverse == false;
+//         //reverse == false;
     
 
-      }
-    };
-    document.body.appendChild(checkbox2); 
+//       }
+//     };
+//     document.body.appendChild(checkbox2); 
 
-  break;
-  case 15:
+//   break;
+//   case 15:
 
-  //checkbox //to toggle shape
-    var checkbox2 = document.createElement("input"); 
-    checkbox2.setAttribute('type', 'checkbox');
-    checkbox2.setAttribute('id',   'changeShape');
-    checkbox2.style.position= 'absolute';
-    checkbox2.style.left= '2%';
-    checkbox2.style.top= '90%';
-    checkbox2.style.scale = "13px";
-    checkbox2.style.width = "15px";
-    checkbox2.style.height = "15px"; 
-    checkbox2.style.fontSize= '150px';
-    checkbox2.style.color= "white";
-    checkbox2.onclick = function(){ //checkbox events
+//   //checkbox //to toggle shape
+//     var checkbox2 = document.createElement("input"); 
+//     checkbox2.setAttribute('type', 'checkbox');
+//     checkbox2.setAttribute('id',   'changeShape');
+//     checkbox2.style.position= 'absolute';
+//     checkbox2.style.left= '2%';
+//     checkbox2.style.top= '90%';
+//     checkbox2.style.scale = "13px";
+//     checkbox2.style.width = "15px";
+//     checkbox2.style.height = "15px"; 
+//     checkbox2.style.fontSize= '150px';
+//     checkbox2.style.color= "white";
+//     checkbox2.onclick = function(){ //checkbox events
 
-      if(checkbox2.checked == true) {
+//       if(checkbox2.checked == true) {
         
-        localStorage.removeItem('shaper');
-        var changeShape = localStorage.setItem('shaper', JSON.stringify(checkbox2.style.top)); 
+//         localStorage.removeItem('shaper');
+//         var changeShape = localStorage.setItem('shaper', JSON.stringify(checkbox2.style.top)); 
 
-        //reverse == true;
+//         //reverse == true;
 
-      }else {
+//       }else {
 
-        var changeShape = localStorage.removeItem('shaper');
+//         var changeShape = localStorage.removeItem('shaper');
 
-        //reverse == false;
+//         //reverse == false;
     
 
-      }
+//       }
      
 
-    };
-    document.body.appendChild(checkbox2); 
+//     };
+//     document.body.appendChild(checkbox2); 
 
 
-    break;
-  case 14:
+//     break;
+//   case 14:
     
     
-    break;
-  default:
-    break;
-}
+//     break;
+//   default:
+//     break;
+// }
 
     
 
 
-}
+// }
 
 //button object
+
+
+
+
+
 class Button {
   constructor(Name, Left, Top, Title, src, scale, div,active) {
   this.name = Name;
