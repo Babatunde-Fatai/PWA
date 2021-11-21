@@ -392,7 +392,6 @@ hostDiv2.setAttribute('id',   'LeftDiv2');
 hostDiv2.style.flexDirection= 'column';
 hostDiv2.style.display = 'flex';
 hostDiv2.style.alignItems = "center";
-hostDiv2.style.width= "100%"
 hostDiv2.style.height= "100%"
 hostDiv2.style.position= "absolute";
 // hostDiv2.style.top = "70%"
@@ -407,7 +406,7 @@ export function buttons(iframe) {
       
      //embed - iframe
       var embedButton;
-      var top= 55;
+      var top= 60;
       var left= -45;
       var size = 35;
       var topV = `${top}%` //button top
@@ -425,7 +424,7 @@ export function buttons(iframe) {
 
       //Share on social media
       var shareButton;
-      var topV = `${top + 7}%` //top
+      var topV = `${top}%` //top
       var topTextV = `${top + 7 - 6}%` //button text top
       var swShare = '../textures/share-white.png'
       var sbShare = '../textures/share-black.png'
@@ -467,7 +466,7 @@ export function buttons(iframe) {
 
       //Share on social media
       var funButton;
-      var topV = `${top + 7}%` //top
+      var topV = `${top}%` //top
       var topTextV = `${top + 7 - 6}%` //button text top
       var swFun = '../textures/fun-white.png'
       var sbFun = '../textures/fun-black.png'
@@ -481,7 +480,7 @@ export function buttons(iframe) {
 
        //Credits button
        var creditButton;
-       var topV = `${top + 7}%` //top
+       var topV = `${top}%` //top
        var topTextV = `${top + 7 - 6}%` //button text top
        var swcredit = '../textures/credit-white.png'
        var sbcredit = '../textures/credit-black.png'
@@ -496,8 +495,8 @@ export function buttons(iframe) {
 
         //embed - iframe
       var pinScene;
-      var left2= 45;
-      var top2 = 55;
+      var left2= 95;
+      var top2 = 60;
       var size = 35;
       var topV = `${top2}%` //button top
       var topTextV = `${top2 - 6}%` //button text top
@@ -512,6 +511,20 @@ export function buttons(iframe) {
       pinScene.action(swEmbed, sbEmbed);
       pinScene.click("embedButton", "iframe link copied", iframe, sgEmbed, topTextV);
       
+
+      var hideUI;
+      var topV = `${top2}%` //button top
+      var topTextV = `${top2 - 6}%` //button text top
+      var sizeV = `${size}px` //button text top
+      var left2V = `${left2}vw` //left
+      var swEmbed = '../textures/hideUI-g.png'
+      var sbEmbed = '../textures/hideUI-black.png'
+      var sgEmbed = '../textures/hideUI-g.png'
+      var titleEmbed = 'Hide all Screen UI'
+      var hideUI = new Button(hideUI, left2V, topV, titleEmbed, swEmbed, sizeV, hostDiv2, true)
+      hideUI.create(sbEmbed)
+      hideUI.action(swEmbed, sbEmbed);
+      hideUI.click("embedButton", "iframe link copied", iframe, sgEmbed, topTextV);
 
       
         //Reload Image
@@ -547,7 +560,7 @@ export function buttons(iframe) {
       reload = location.reload();
   }
 
-    document.body.appendChild(refreshButton);  
+  document.body.appendChild(refreshButton);  
     
 
 
@@ -568,6 +581,36 @@ text.innerHTML = today;
 console.log(dateTime)
 
 }
+
+
+//getting idle
+
+let inactivityTime = function () {
+  let time;
+  window.onload = resetTimer;
+  document.onmousemove = resetTimer;
+  document.onkeydown = resetTimer;
+  
+  function logout() {
+    //what to do when idel
+    console.log("You are now inactive")
+
+    form.style.display = 'none';
+    hostDiv.style.display = 'none';
+    hostDiv2.style.display = 'none';
+    
+  }
+  function resetTimer() {
+    clearTimeout(time);
+    time = setTimeout(logout, 10000)
+
+     //Do this when active again
+     form.style.display = 'flex';
+     hostDiv.style.display = 'flex';
+     hostDiv2.style.display = 'flex';
+  }
+};
+inactivityTime();
 
 
 
